@@ -17,12 +17,11 @@ y = np.arange(0, ly + dy, dy, dtype='float64')
 z = np.arange(0, lz + dz, dz, dtype='float64')
 
 # Variables
+point_data = np.zeros((nx + 1, ny + 1, nz + 1))
+cell_data = np.zeros((nx, ny, nz))
 
-temp = np.zeros((nx + 1, ny + 1, nz + 1))
-pressure = np.zeros((nx, ny, nz))
+cell_data[1][1][1] = 1.0
 
-pressure[1][1][1] = 1.0
+point_data[2][1][1] = 1.0 
 
-temp[2][1][1] = 1.0 
-
-hl.gridToVTK("./visualization", x, y, z, cellData = {"pressure" : pressure}, pointData = {"temp" : temp})
+hl.gridToVTK("./visualization", x, y, z, cellData = {"pressure" : pressure}, pointData = {"temp" : point_data})
