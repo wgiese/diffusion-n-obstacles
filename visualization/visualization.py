@@ -24,4 +24,4 @@ cell_data[1][1][1] = 1.0
 
 point_data[2][1][1] = 1.0 
 
-hl.gridToVTK("./visualization", x, y, z, cellData = {"pressure" : pressure}, pointData = {"temp" : point_data})
+hl.gridToVTK("./visualization", x, y, z, cellData = {"pressure" : cell_data}, pointData = {"temp" : point_data})
